@@ -1,0 +1,79 @@
+{
+  "name": "strictly-sinon-chai",
+  "version": "0.0.1",
+  "description": "A statically typed subset of sinon-chai assertions written in TypeScript for use with strictly-chai",
+  "keywords": [
+    "assert",
+    "expect",
+    "chai",
+    "sinon",
+    "sinon-chai",
+    "testing",
+    "typed",
+    "typescript",
+    "bdd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NiGhTTraX/strictly-sinon-chai.git"
+  },
+  "main": "dist/src/index",
+  "types": "dist/src/index",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc --declaration --outDir ./dist",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint --ext ts .",
+    "test": "TS_NODE_CACHE=0 mocha --opts tests/mocha.opts",
+    "test:coverage": "NODE_ENV=coverage nyc mocha --opts tests/mocha.coverage.opts",
+    "report-coverage": "nyc report --reporter=json && codecov -f tests/results/coverage/coverage-final.json",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": "eslint"
+  },
+  "author": "Andrei Picus",
+  "license": "MIT",
+  "dependencies": {
+    "sinon-chai": "~3.1.0"
+  },
+  "peerDependencies": {
+    "chai": "^4.1.2",
+    "sinon": "^5.0.7",
+    "strictly-chai": "^0.0.2",
+    "typescript": "^2.8"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.0.0-beta.47",
+    "@babel/preset-env": "~7.0.0-beta.47",
+    "@babel/preset-typescript": "~7.0.0-beta.47",
+    "@babel/register": "~7.0.0-beta.47",
+    "@nighttrax/eslint-config": "~1.0.1",
+    "@types/chai": "~4.1.3",
+    "@types/mocha": "~5.2.0",
+    "@types/node": "~10.1.2",
+    "@types/sinon": "~4.3.1",
+    "@types/sinon-chai": "~2.7.29",
+    "babel-plugin-istanbul": "~4.1.6",
+    "codecov": "~3.0.2",
+    "eslint": "~4.19.1",
+    "eslint-import-resolver-babel-module": "~4.0.0",
+    "eslint-plugin-import": "~2.12.0",
+    "eslint-plugin-jsx-a11y": "~6.0.3",
+    "eslint-plugin-react": "~7.8.2",
+    "eslint-plugin-typescript": "~0.12.0",
+    "husky": "~0.14.3",
+    "lint-staged": "~7.1.1",
+    "mocha": "~5.2.0",
+    "nyc": "~11.8.0",
+    "sinon": "~5.0.7",
+    "strictly-chai": "0.0.2",
+    "ts-node": "~6.0.0",
+    "typescript": "^2.8",
+    "typescript-eslint-parser": "~15.0.0"
+  },
+  "files": [
+    "dist/src/**/*"
+  ]
+}
