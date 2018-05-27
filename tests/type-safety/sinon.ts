@@ -7,3 +7,5 @@ const appleSpie = spy();
 
 sinonExpect(appleSpie).to.have.been.called(true);
 sinonExpect(appleSpie).to.have.been.calledWith();
+
+sinonExpect(() => {}).to.have.been.called();
